@@ -3,6 +3,18 @@ DROP TABLE IF EXISTS tb_detalhes_orcamento;
 DROP TABLE IF EXISTS tb_orcamentos;
 DROP TABLE IF EXISTS tb_servicos;
 DROP TABLE IF EXISTS tb_usuarios;
+DROP TABLE IF EXISTS tb_chat;
+
+-- Tabela de Chat
+CREATE TABLE tb_chat (
+    id_chat INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    ds_mensagem TEXT,
+    dt_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tg_admin BOOLEAN,
+    FOREIGN KEY (id_usuario) REFERENCES tb_usuarios(id_usuario)
+);
+
 
 -- Tabela de Usuários
 CREATE TABLE tb_usuarios (
