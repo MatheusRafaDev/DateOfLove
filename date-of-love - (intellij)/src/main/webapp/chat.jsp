@@ -48,7 +48,7 @@
                 </c:forEach>
             </div>
             <div class="card-footer chat-input">
-                <form action="${pageContext.request.contextPath}/chat" method="post" class="d-flex">
+                <form action="${pageContext.request.contextPath}/chat-usuario" method="post" class="d-flex">
                     <input type="text" name="mensagem" class="form-control me-2" placeholder="Digite sua mensagem" required>
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>

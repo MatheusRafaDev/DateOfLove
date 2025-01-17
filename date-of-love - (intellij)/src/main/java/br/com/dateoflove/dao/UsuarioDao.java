@@ -302,4 +302,33 @@ public class UsuarioDao {
         }
     }
 
+    public static Usuario buscarUsuarioPorId2(int idUsuario) {
+        Usuario usuario = null;
+
+        try {
+            String SQL = "SELECT * FROM tb_usuarios WHERE id_usuario = ?";
+            Connection connection = PoolConfig.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setInt(1, idUsuario);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+
+                String nomeNoivo = resultSet.getString("nm_noivo");
+                String nomeNoiva = resultSet.getString("nm_noiva");
+                String email = resultSet.getString("ds_email");
+                String senha = resultSet.getString("ds_senha");
+                java.util.Date dataCadastro = resultSet.getDate("dt_cadastro");
+                String nomesConcatenados = resultSet.getString("nm_noivos_concatenado");
+
+                String imagem = resultSet.getString("imagem_path");
+                usuario = new Usuario(idUsuario, nomeNoivo, nomeNoiva, email, senha, dataCadastro, nomesConcatenados,
+                        imagem);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar usuário por ID: " + e.getMessage());
+        }
+        return usuario;
+    }
 }

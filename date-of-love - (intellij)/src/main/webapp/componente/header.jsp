@@ -53,7 +53,7 @@
                     <button type="submit" class="nomeCasal"><%= usuario2.getNomesConcatenados() %></button>
                     <img src="<%= finalImagePath %>" alt="Foto do Usuário" />
                     <strong>
-                        <a href="<%=request.getContextPath()%>/chat" class="chat-button">Chat</a>
+                        <a href="<%=request.getContextPath()%>/chat-usuario" class="chat-button">Chat</a>
                     </strong>
                 </div>
             </form>

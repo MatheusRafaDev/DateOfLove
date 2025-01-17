@@ -44,12 +44,19 @@
                         <td>${usuario.getEmail()}</td>
                         <td>${usuario.getDataCadastro()}</td>
                         <td>
-                            <form action="${pageContext.request.contextPath}/carregar-usuario-unico" method="get">
-                                <input type="hidden" name="idUsuario" value="${usuario.getIdUsuario()}">
-                                <input type="hidden" name="email" value="${usuario.getEmail()}">
-                                <button type="submit" class="botao">Ver Perfil</button>
-                            </form>
+                            <div style="display: flex; gap: 10px; align-items: center;">
+                                <form action="${pageContext.request.contextPath}/carregar-usuario-unico" method="get">
+                                    <input type="hidden" name="idUsuario" value="${usuario.getIdUsuario()}">
+                                    <input type="hidden" name="email" value="${usuario.getEmail()}">
+                                    <button type="submit" class="botao">Ver Perfil</button>
+                                </form>
+                                <form action="${pageContext.request.contextPath}/carregar-chat" method="get">
+                                    <input type="hidden" name="idUsuario" value="${usuario.getIdUsuario()}">
+                                    <button type="submit" class="botao">Chat</button>
+                                </form>
+                            </div>
                         </td>
+
                     </tr>
                 </c:forEach>
             </tbody>

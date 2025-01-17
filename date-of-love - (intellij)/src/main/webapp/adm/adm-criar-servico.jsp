@@ -1,4 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="br.com.dateoflove.model.Servico" %>
+
+<%
+   Usuario usuario2 = (Usuario) session.getAttribute("usuario2");
+   if (usuario2 == null || !usuario2.getEmail().equals("adm")) {
+      response.sendRedirect("/login");
+      return;
+   }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -15,10 +15,12 @@ public class ChatDao {
         try (Connection connection = PoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
 
+            // Preenche os parâmetros da query
             preparedStatement.setInt(1, mensagem.getIdUsuario());
             preparedStatement.setString(2, mensagem.getMensagem());
             preparedStatement.setBoolean(3, mensagem.isEnviadoPorAdmin());
 
+            // Executa a inserção
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Erro ao adicionar mensagem de chat: " + e.getMessage());
@@ -32,6 +34,7 @@ public class ChatDao {
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(SQL)) {
 
+            // Itera sobre os resultados da query e cria objetos Chat para cada linha
             while (resultSet.next()) {
                 Chat mensagem = new Chat();
                 mensagem.setIdChat(resultSet.getInt("id_chat"));
@@ -48,16 +51,17 @@ public class ChatDao {
         return mensagens;
     }
 
-
-    public List<Chat> buscarMensagensPorUsuario(int idUsuario) {
+    public static List<Chat> buscarMensagensPorUsuario(int idUsuario) {
         List<Chat> mensagens = new ArrayList<>();
         String SQL = "SELECT id_chat, id_usuario, ds_mensagem, dt_envio, tg_admin FROM tb_chat WHERE id_usuario = ? ORDER BY dt_envio ASC";
         try (Connection connection = PoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
 
+            // Preenche o parâmetro da query
             preparedStatement.setInt(1, idUsuario);
             ResultSet resultSet = preparedStatement.executeQuery();
 
+            // Itera sobre os resultados da query e cria objetos Chat para cada linha
             while (resultSet.next()) {
                 Chat mensagem = new Chat();
                 mensagem.setIdChat(resultSet.getInt("id_chat"));
@@ -80,9 +84,11 @@ public class ChatDao {
         try (Connection connection = PoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
 
+            // Preenche o parâmetro da query
             preparedStatement.setInt(1, idChat);
             int rowsAffected = preparedStatement.executeUpdate();
 
+            // Verifica se alguma linha foi afetada
             if (rowsAffected > 0) {
                 System.out.println("Mensagem deletada com sucesso!");
             } else {
