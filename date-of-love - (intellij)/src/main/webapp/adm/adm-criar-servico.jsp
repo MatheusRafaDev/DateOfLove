@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="br.com.dateoflove.model.Servico" %>
+<%@ page import="br.com.dateoflove.model.Usuario" %>
 
 <%
    Usuario usuario2 = (Usuario) session.getAttribute("usuario2");

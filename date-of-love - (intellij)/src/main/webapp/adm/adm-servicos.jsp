@@ -36,6 +36,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nome do Serviço</th>
                     <th>Preço Simples</th>
                     <th>Preço Comum</th>
@@ -47,6 +48,7 @@
             <tbody>
                 <c:forEach var="servico" items="${servico}">
                     <tr>
+                        <td>${servico.idServico}</td>
                         <td>${servico.nomeServico}</td>
                         <td><fmt:formatNumber value="${servico.precoSimples}" type="currency" currencySymbol="R$"/></td>
                         <td><fmt:formatNumber value="${servico.precoComum}" type="currency" currencySymbol="R$"/></td>
@@ -54,7 +56,7 @@
                         <td><fmt:formatNumber value="${servico.precoExclusivo}" type="currency" currencySymbol="R$"/></td>
                         <td>
                             <button type="button" class="action-button" onclick="window.location.href='visualizar-servico?id=${servico.idServico}'">Editar</button>
-                        </td>
+                            <button type="button" class="action-button" onclick="if(confirm('Tem certeza que deseja excluir este serviço?')) { window.location.href='deletar-servico?id=${servico.idServico}'; }">Excluir</button>                        </td>
                     </tr>
                 </c:forEach>
             </tbody>

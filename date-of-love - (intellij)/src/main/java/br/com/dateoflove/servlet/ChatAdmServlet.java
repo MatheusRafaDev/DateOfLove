@@ -20,7 +20,7 @@ public class ChatAdmServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        
+
 
         String idUsuarioParam = request.getParameter("idUsuario");
         String mensagemTexto = request.getParameter("mensagem");

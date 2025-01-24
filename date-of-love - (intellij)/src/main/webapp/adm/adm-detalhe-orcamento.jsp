@@ -58,6 +58,10 @@
                     <p><strong>Nome do Usuário:</strong> ${usuario3.getNomesConcatenados()}</p>
                     <p><strong>Data de Criação:</strong> ${orcamento.getDataOrcamento()}</p>
                     <p><strong>Data do Casamento:</strong> ${orcamento.getDataCasamento()}</p>
+                    <p><strong>Status:</strong> ${orcamento.getStatus()}</p>
+                    <p><strong>Tipo cerimonia:</strong> ${orcamento.getTipoCerimonia()}</p>
+                    <p><strong>Forma de pagamento</strong> ${orcamento.getFormaPagamento()}</p>
+                    <p><strong>Local:</strong> ${orcamento.getLocal()}</p>
                 </div>
 
                 <p><strong>Orçador:</strong> <input type="text" name="nomeOrcador" value="${orcamento.getNomeOrcador()}" class="input-text"/></p>

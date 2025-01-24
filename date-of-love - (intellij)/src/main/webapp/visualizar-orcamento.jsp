@@ -39,6 +39,10 @@
             <p><strong>Status:</strong> ${orcamento.getStatus()}</p>
             <p><strong>Data do casamento :</strong> ${orcamento.getDataCasamento()}</p>
             <p><strong>Data do orçamento:</strong> ${orcamento.getDataOrcamento()}</p>
+
+            <p><strong>Tipo cerimonia:</strong> ${orcamento.getTipoCerimonia()}</p>
+            <p><strong>Forma de pagamento</strong> ${orcamento.getFormaPagamento()}</p>
+            <p><strong>Local:</strong> ${orcamento.getLocal()}</p>
         </div>
 
         <div class="orcamento-details">

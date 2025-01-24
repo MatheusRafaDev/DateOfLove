@@ -128,5 +128,15 @@ public class ServicoDao {
         }
     }
 
+    public void deletarServico(int idServico) {
+        String query = "DELETE FROM tb_servicos WHERE id_servico = ?";
 
+        try (Connection connection = PoolConfig.getConnection();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, idServico);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
