@@ -48,8 +48,9 @@
         <div class="orcamento-details">
             <h3>Detalhes do Orçamento</h3>
             <div class="orcamento-summary">
-                <div><strong>Valor Total:</strong> R$ ${orcamento.getValorTotal()}</div>
+
                 <div><strong>Valor Estimado:</strong> R$ ${orcamento.getValorEstimado()}</div>
+                <div><strong>Valor Total: R$ ${orcamento.getValorTotal()}</div></strong>
             </div>
         </div>
 
